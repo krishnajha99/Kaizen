@@ -1,0 +1,78 @@
+{
+  "name": "trading-platform",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.1.0",
+    "electron-is-dev": "^1.1.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-router-dom": "^5.1.1",
+    "react-scripts": "3.1.2",
+    "sqlite3": "^4.1.0"
+  },
+  "author": {
+    "name": "Cheuk Lee",
+    "email": "dev.cheuk.lee@gmail.com",
+    "url": "https://leecheuk.netlify.com"
+  },
+  "build": {
+    "appId": "com.leecheuk.netlify.trading-platform",
+    "productName": "Trading Platform",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "NSIS"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "rescripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "clear-db": "rm -f ./public/db/app.db && touch ./public/db/app.db",
+    "electron-pack": "yarn clear-db && electron-builder -l"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "@rescripts/cli": "^0.0.12",
+    "@rescripts/rescript-env": "^0.0.10",
+    "concurrently": "^4.1.2",
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0",
+    "typescript": "^3.6.3",
+    "wait-on": "^3.3.0"
+  }
+}
