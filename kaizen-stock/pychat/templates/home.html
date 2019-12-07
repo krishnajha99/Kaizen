@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tickers</title>
+  </head>
+  <body>
+	<div>
+		
+		{% extends "template.html" %}
+		{% block content %}
+		<h2>Tickers</h2>
+		<form method="POST" onsubmit="myfunction()">
+			<div>
+				{{ form.hidden_tag() }}
+				{{ form.text.label()}}
+				{{ form.text()}}
+				
+			</div>
+			<div>
+				{{ form.submit(class="btn")}}
+				{{ form.monthly(class="btn")}}
+				{{ form.download(class="btn")}}
+			</div>
+		</form>
+		{% endblock %}
+    </div>
+  </body>
+</html>

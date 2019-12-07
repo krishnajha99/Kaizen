@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tweets</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <h1> All Tweets By Chinmay </h1>
+    {% for i in twitterAPI.paginate(posts, 50): %}
+		{% for twet in i: %}
+			<p> New Tweet!</p>
+			<p>{{twet.id}}</p>
+			<p>{{twet.text}}</p>
+			<p> -------------------------------------------------- </p>
+		{% endfor %}
+	{% endfor %}
+      
+   
+      
+    {% endblock %}
+  </body>
+</html>
